@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: customized-dietary
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3307/mariadb
+    username: admin
+    password: admin
+  output:
+    ansi:
+      enabled: ALWAYS
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+logging:
+  level:
+    root: INFO
+#    clv.cos.odc.customized_dietary: ERROR
+  file:
+    name: logs/log.log
+#    path: /var/log/myapp
+  pattern:
+    console: "%white(%d{dd-MM-yyyy hh:mm:ss}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable"
+    file: "%white(%d{dd-MM-yyyy hh:mm:ss}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable"
+  appenders:
+    - type: console
+      threshold: INFO
+      layout:
+        type: pattern
+    - type: file
+      threshold: ERROR
+      layout:
+        type: pattern
